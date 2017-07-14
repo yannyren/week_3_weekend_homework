@@ -41,4 +41,10 @@ class Film
     result = SqlRunner.run(sql)
   end 
 
+  def customer_count
+    sql = "SELECT * FROM tickets WHERE film_id = #{@title};"
+    result = SqlRunner.run(sql).count
+
+  end 
+
 end 

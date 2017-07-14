@@ -41,7 +41,16 @@ class Customer
     result = SqlRunner.run(sql)
   end 
  
-  
+  def buy_ticket(film)
+    @funds = @funds - film.price
+    update()
+  end
 
+  def tickets_count
+    sql = "SELECT * FROM tickets 
+    WHERE customer_id = #{@id};"
+    result = SqlRunner.run(sql).count
+  end 
+  
 
 end 
