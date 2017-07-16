@@ -22,7 +22,7 @@ class Ticket
    sql = "UPDATE tickets 
      SET customer_id = #{@customer_id}, film_id = #{@film_id}
      WHERE id = #{@id};"
-   result = SqlRunner.run(sql)
+   SqlRunner.run(sql)
  end 
 
   
@@ -34,7 +34,7 @@ class Ticket
 
   def self.delete_all
     sql = "DELETE FROM tickets;"
-    result = SqlRunner.run(sql)
+    SqlRunner.run(sql)
   end 
 
 end 

@@ -22,12 +22,12 @@ class Customer
     sql = "UPDATE customers 
       SET name = '#{@name}', funds = #{@funds}
       WHERE id = #{@id};"
-    result = SqlRunner.run(sql)
+    SqlRunner.run(sql)
   end 
 
   def films()
     sql = "SELECT films.* FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.customer_id = #{@id};"
-    result = SqlRunner.run(sql).map {|film| Film.new(film)}
+    SqlRunner.run(sql).map {|film| Film.new(film)}
   end 
 
   def self.all
@@ -38,7 +38,7 @@ class Customer
 
   def self.delete_all
     sql = "DELETE FROM customers;"
-    result = SqlRunner.run(sql)
+    SqlRunner.run(sql)
   end 
  
   def buy_ticket(film)
@@ -49,7 +49,7 @@ class Customer
   def tickets_count
     sql = "SELECT * FROM tickets 
     WHERE customer_id = #{@id};"
-    result = SqlRunner.run(sql).count
+    SqlRunner.run(sql).count
   end 
   
 
